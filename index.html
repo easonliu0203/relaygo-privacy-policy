@@ -126,13 +126,13 @@
         <p class="subtitle">請選擇您要查看的隱私權政策<br>Please select the privacy policy you want to view</p>
         
         <div class="button-group">
-            <a href="customer.html" class="privacy-button customer-button">
+            <a id="link-customer" href="customer.html" class="privacy-button customer-button">
                 <span class="icon">👤</span>
                 客戶端隱私權政策<br>
                 <small style="font-size: 14px; font-weight: normal;">Customer Privacy Policy</small>
             </a>
-            
-            <a href="driver.html" class="privacy-button driver-button">
+
+            <a id="link-driver" href="driver.html" class="privacy-button driver-button">
                 <span class="icon">🚕</span>
                 司機端隱私權政策<br>
                 <small style="font-size: 14px; font-weight: normal;">Driver Privacy Policy</small>
@@ -144,6 +144,17 @@
             <p>生效日期 Effective Date: 2025 年 1 月 1 日 / January 1, 2025</p>
         </div>
     </div>
+    <script>
+        (function() {
+            var nav = (navigator.language || '').toLowerCase();
+            var lang = nav.startsWith('zh') ? 'zh-TW' : 'en';
+            var params = new URLSearchParams(window.location.search);
+            var paramLang = params.get('lang');
+            if (paramLang) lang = paramLang;
+            document.getElementById('link-customer').href = 'customer.html?lang=' + lang;
+            document.getElementById('link-driver').href = 'driver.html?lang=' + lang;
+        })();
+    </script>
 </body>
 </html>
 
